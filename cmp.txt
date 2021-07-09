@@ -1,0 +1,15 @@
+<aura:component controller="accController">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="accList" type="Account[]"/>
+    <aura:attribute name="accColumns" type="List"/>
+    <aura:attribute name="accData" type="Object"/>
+    <aura:attribute name="sortBy" type="String"/>
+    <aura:attribute name="sortDirection" type="String"/>
+    <lightning:datatable columns="{!v.accColumns}"
+                         data="{!v.accData}"
+                         keyField="Id"
+                         hideCheckboxColumn="true"
+                         sortedBy= "{!v.sortBy}"
+                         sortedDirection="{!v.sortedDirection}"
+                         onsort="{!c.handleSort}"/>
+</aura:component>

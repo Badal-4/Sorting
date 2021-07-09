@@ -1,0 +1,37 @@
+({
+    doInit : function(component,event,helper)
+    {
+        component.set("v.accColumns",[
+            {
+                label : 'Name',
+                fieldName : 'Name',
+                type : 'Text',
+                sortable : 'true'
+            },
+            {
+                label : 'Type',
+                fieldName : 'Type',
+                type : 'Text',
+                sortable : 'true',
+            },
+            {
+                label : 'Phone',
+                fieldName : 'Phone',
+                type : 'Text',
+                sortable : 'true'
+            }
+        ]);
+        helper.getData(component,event,helper);
+    },
+    handleSort : function(component,event,helper){
+        //Returns the field which has to be sorted
+        var sortBy = event.getParam("fieldName");
+        //returns the direction of sorting like asc or desc
+        var sortDirection = event.getParam("sortDirection");
+        //Set the sortBy and SortDirection attributes
+        component.set("v.sortBy",sortBy);
+        component.set("v.sortDirection",sortDirection);
+        // call sortData helper function
+        helper.sortData(component,sortBy,sortDirection);
+    }
+})
